@@ -1,70 +1,43 @@
-# 🌍 End-to-End Earthquake Data Engineering Project (Databricks)
+#  End-to-End Earthquake Data Engineering Project (Databricks)
 
-## 📌 Overview
+This project demonstrates a complete Data Engineering pipeline built on Databricks Lakehouse using real-time earthquake data from the USGS API.
 
-This project demonstrates a **complete Data Engineering pipeline** built on **Databricks Lakehouse** using real-time earthquake data from the USGS API.
-
-The pipeline ingests raw data, processes it through **Bronze → Silver → Gold layers**, and serves insights via dashboards.
+The pipeline ingests raw data, processes it through Bronze → Silver → Gold layers, and serves insights via dashboards.
 
 ---
 
-## 🧠 Architecture
+## Architecture
 
 ```
 USGS API → Bronze (Raw JSON) → Silver (Cleaned Data) → Gold (Aggregations) → Dashboard
 ```
 
-### 🔁 Workflow
+###  Workflow
 
-1. Extract earthquake data from API
-2. Store raw data in Bronze layer
-3. Transform and clean data in Silver layer using DLT
-4. Build aggregated insights in Gold layer
-5. Visualize using Databricks Dashboard
-
----
-
-## ⚙️ Tech Stack
-
-* 🧱 **Databricks Lakehouse**
-* 🔄 **Delta Live Tables (DLT)**
-* ⚡ **PySpark**
-* 🗂️ **Delta Lake**
-* 🌐 **USGS Earthquake API**
-* 📊 **Databricks SQL Dashboard**
-* 🚀 **Databricks Asset Bundles (DAB)**
-* 🔁 **CI/CD (GitHub Actions - optional)**
+- Extract earthquake data from API
+- Store raw data in Bronze layer
+- Transform and clean data in Silver layer using DLT
+- Build aggregated insights in Gold layer
+- Visualize using Databricks Dashboard
 
 ---
 
-## 📁 Project Structure
+## Tech Stack
 
-```
-Databricks_DE_Project/
-│
-├── src/
-│   ├── notebooks/
-│   │   ├── Ingestion_Bronze.py
-│   │
-│   ├── dlt/
-│   │   ├── Bronze_Silver_Earthquake.py
-│   │
-│   ├── dashboard/
-│   │   ├── USGS Earthquakes Data.lvdash.json
-│
-├── resources/
-│   ├── jobs.yml
-│   ├── dashboards.yml
-│
-├── databricks.yml
-├── README.md
-```
+* Databricks Lakehouse
+* Delta Live Tables (DLT)
+* PySpark
+* Delta Lake
+* USGS Earthquake API
+* Databricks SQL Dashboard
+* Databricks Asset Bundle (DAB)
+* CI/CD (GitHub Actions)
 
 ---
 
-## 🚀 Pipeline Details
+##Pipeline Details
 
-### 🥉 Bronze Layer (Raw Ingestion)
+### Bronze Layer (Raw Ingestion)
 
 * Fetch data from USGS API
 * Store JSON files in volume storage
@@ -72,7 +45,7 @@ Databricks_DE_Project/
 
 ---
 
-### 🥈 Silver Layer (DLT Pipeline)
+###Silver Layer (DLT Pipeline)
 
 * Parse nested JSON structure
 * Flatten schema
@@ -80,11 +53,11 @@ Databricks_DE_Project/
 
   * Remove invalid values
   * Convert timestamps
-* Apply **SCD Type 1 (Upserts)**
+* Apply SCD Type 1 (Upserts)
 
 ---
 
-### 🥇 Gold Layer (Analytics)
+### Gold Layer (Analytics)
 
 * Magnitude-based categorization
 * Country-wise earthquake counts
@@ -92,27 +65,26 @@ Databricks_DE_Project/
 
 ---
 
-## 🧾 Job Orchestration
+## Job Orchestration
 
-The pipeline is orchestrated using **Databricks Jobs**:
-
-1. **Ingestion_Bronze** → Fetch API data
-2. **DLT Pipeline** → Transform Bronze → Silver
-3. **Dashboard Refresh** → Update visualizations
+The pipeline is orchestrated using Databricks Jobs:
+1. Ingestion_Bronze → Fetch API data
+2. DLT Pipeline → Transform Bronze → Silver
+3. Dashboard Refresh → Update visualizations
 
 ---
 
-## 📺 Dashboard
+## Dashboard
 
 The dashboard provides:
 
-* 📊 Earthquake magnitude distribution
-* 🌍 Country-wise earthquake analysis
-* 📈 Trends and insights
+* Earthquake magnitude distribution
+* Country-wise earthquake analysis
+* Trends and insights
 
 ---
 
-## ⚙️ Deployment (Databricks Asset Bundle)
+## Deployment (Databricks Asset Bundle)
 
 ### Deploy:
 
@@ -128,7 +100,7 @@ databricks bundle run E2E_EarthQuake_Project
 
 ---
 
-## 🔐 Configuration
+## Configuration
 
 Set variables in `databricks.yml`:
 
@@ -140,7 +112,7 @@ variables:
 
 ---
 
-## ⚠️ Data Quality Checks
+## Data Quality Checks
 
 * Removed null/invalid magnitudes
 * Handled missing location values
@@ -148,23 +120,9 @@ variables:
 
 ---
 
-## 🚀 Future Improvements
+##Author
 
-* Real-time streaming ingestion
-* Alert system for high magnitude earthquakes
-* Machine Learning for prediction
-* Geo-spatial visualization
-* Multi-region analysis
+Fairooz Baig -> 
+ https://github.com/FairoozBaig
 
 ---
-
-## 👤 Author
-
-**Fairooz Baig**
-🔗 https://github.com/FairoozBaig
-
----
-
-## ⭐ If you like this project
-
-Give it a ⭐ on GitHub and feel free to contribute!
