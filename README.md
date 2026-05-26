@@ -120,9 +120,7 @@ variables:
 
 ---
 
-##Author
+## Author
 
-Fairooz Baig -> 
- https://github.com/FairoozBaig
-
----
+Fairooz Baig
+-> https://github.com/fairooz-baig
